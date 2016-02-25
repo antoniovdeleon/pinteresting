@@ -1,31 +1,38 @@
-<div class="col-sm-10 col-sm-offset-1 jumbotron">
-  <h1 class="center">Sign Up</h1>
+<div class="col-sm-8 col-sm-offset-2">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="center">Sign Up</h1>
+    </div>
+    <div class="panel-body">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %><br />
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"stevejobs@apple.com"%>
+        </div><br />
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %><br />
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"stevejobs@apple.com"%>
-    </div><br />
+        <div class="form-group">
+          <%= f.label :password %><br />
+          <em>Password must have at least <%= @minimum_password_length %> characters, contain a number, a lowercase and uppercase letter, as well as a special character.</em><br />
+          <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Type your password" %>
+        </div><br /> 
 
-    <div class="field">
-      <%= f.label :password %>
-      <em>Password must have at least <%= @minimum_password_length %> characters, contain a number, a lowercase and uppercase letter, as well as a special character.</em><br />
-      <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Type your password" %>
-    </div><br /> 
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Type your passsword again" %>
+        </div><br />
 
-    <div class="field">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Type your passsword again" %>
-    </div><br />
-
-    <div class="actions">
-      <%= f.submit "Sign up", class: "btn btn-success" %>
-    </div><br />
-  <% end %>
-  
-  <em>Already have an account with us?</em>
-  <div class="btn btn-default">
-    <%= render "devise/shared/links"%>
+        <div class="actions">
+          <%= f.submit "Sign up", class: "btn btn-success" %>
+        </div><br />
+      <% end %>
+    </div>
+    
+    <div class="panel-footer">
+      <em>Already have an account with us?</em>
+      <div class="btn btn-default">
+        <%= render "devise/shared/links"%>
+      </div>
+    </div>
   </div>
 </div>
