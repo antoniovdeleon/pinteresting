@@ -31,10 +31,11 @@
         <% end %>
       </tbody>
     </div>
-    <div class="panel-footer">
-      <h3 class="center"><% if user_signed_in? %>
-      <%= link_to 'Add A Pin!', new_pin_path %>
-      <% end %></h3>
+    <% if user_signed_in? %>
+      <div class="panel-footer">
+        <h3 class="center">
+        <%= link_to 'Add A Pin!', new_pin_path %></h3>
+    <% end %>
     </div>
     
   </div>
