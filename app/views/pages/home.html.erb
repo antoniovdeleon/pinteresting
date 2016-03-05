@@ -18,6 +18,7 @@
         <% if @pins.any? %>
           <% @pins.each do |pin| %>
             <tr>
+              <td><%= image_tag pin.image.url(:medium) %></td>
               <td><%= link_to pin.descriptioin, pin %></td>
               <td>by <%= pin.user.email if pin.user %></td>
               <% if pin.user == current_user %>
