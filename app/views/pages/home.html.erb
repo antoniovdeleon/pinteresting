@@ -7,3 +7,30 @@
         <%= link_to "sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
     <% end %>
 </div>
+
+<div class="panel-group">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Pins</h2>
+    </div>
+    <div class="panel-body">
+    
+      <tbody>
+        <% @pins.each do |pin| %>
+          <tr>
+            <td><%= pin.descriptioin %></td>
+            <td><%= pin.user.email if pin.user %></td>
+            <td><%= link_to 'Show', pin %></td>
+            <% if pin.user == current_user %>
+              <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
+              <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+
+
+    </div>
+    
+  </div>
+</div>
