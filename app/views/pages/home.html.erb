@@ -14,21 +14,27 @@
       <h2>Pins</h2>
     </div>
     <div class="panel-body">
-    
       <tbody>
-        <% @pins.each do |pin| %>
-          <tr>
-            <td><%= link_to pin.descriptioin, pin %></td>
-            <td>by <%= pin.user.email if pin.user %></td>
-            <% if pin.user == current_user %>
-              <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-              <td><%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
-          </tr>
+        <% if @pins.any? %>
+          <% @pins.each do |pin| %>
+            <tr>
+              <td><%= link_to pin.descriptioin, pin %></td>
+              <td>by <%= pin.user.email if pin.user %></td>
+              <% if pin.user == current_user %>
+                <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
+                <td><%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        <% else %>
+          <p>There are no pins yet</p>
         <% end %>
       </tbody>
-
-
+    </div>
+    <div class="panel-footer">
+      <h3 class="center"><% if user_signed_in? %>
+      <%= link_to 'Add A Pin!', new_pin_path %>
+      <% end %></h3>
     </div>
     
   </div>
