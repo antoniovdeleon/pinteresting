@@ -85,7 +85,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['www.pinterization.herokuapp.com'],
+      :bucket => ENV['pinterization.herokuapp.com'],
       :access_key_id => ENV['AKIAJH5TCN4MXX54BHRQ'],
       :secret_access_key => ENV['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']
     }
