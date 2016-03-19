@@ -19,7 +19,7 @@
         <% else %>
           <td>no photo available</td>
         <% end %>
-        <td><%= pin.descriptioin %></td>
+        <td><%= pin.description %></td>
         <td><%= pin.user.email if pin.user %></td>
         <td><%= link_to 'Show', pin %></td>
         <% if pin.user == current_user %>
